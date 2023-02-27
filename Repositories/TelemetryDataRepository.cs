@@ -7,7 +7,7 @@ namespace IOTDeviceManagement.Repositories
 {
     public class TelemetryDataRepository
     {
-        private static string connectionString = "";
+        private static string connectionString = "HostName=pavitrahub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=dEdFcEPpRIEiiacjwbsvyg+C3HDrNKX35vCje5QsxkE=";
         public static async Task<bool> IsDeviceAvailable(string deviceId)
         {
             var registrymanager = RegistryManager.CreateFromConnectionString(connectionString);

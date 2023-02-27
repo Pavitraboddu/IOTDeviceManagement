@@ -7,7 +7,7 @@ namespace IOTDeviceManagement.Repositories
 {
     public class UpdatePropertiesRepository
     {
-        private static string connectionString = "";
+        private static string connectionString = "HostName=pavitrahub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=dEdFcEPpRIEiiacjwbsvyg+C3HDrNKX35vCje5QsxkE=";
         public static async Task<bool> IsDeviceAvailable(string deviceId)
         {
             var registrymanager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -35,9 +35,10 @@ namespace IOTDeviceManagement.Repositories
         public async Task<string> UpdateDesiredPropertiesAsync(UpdateProperties properties, string deviceId)
         {
             var registryManager = RegistryManager.CreateFromConnectionString(connectionString);
-            {
+           {
                 if (await IsDeviceAvailable(deviceId))
                 {
+                    //var registryManager = RegistryManager.CreateFromConnectionString(connectionString);
                     var desiredProperties = new TwinCollection();
                     desiredProperties[properties.Key] = properties.Value;
                     var twin = await registryManager.GetTwinAsync(deviceId);
@@ -46,7 +47,7 @@ namespace IOTDeviceManagement.Repositories
                     return "Desired Properties updated successfully";
                 }
                 return "Device is disabled";
-            }
+           }
         }
     } 
 }

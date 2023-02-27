@@ -5,7 +5,7 @@ namespace IOTDeviceManagement.Repositories
 {
     public class DeviceRepository
     {
-        private static string connectionString = "";
+        private static string connectionString = "HostName=pavitrahub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=dEdFcEPpRIEiiacjwbsvyg+C3HDrNKX35vCje5QsxkE=";
         private static RegistryManager registryManager;
         public DeviceRepository()
         { 
